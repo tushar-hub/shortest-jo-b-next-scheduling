@@ -86,3 +86,7 @@ int main()
     ta_final += tT[i];
   }
   ta_avg=ta_final/n;
+  printf("\n\n\t\t\t -------------- VALUES AFTER CALCULATING TURNAROUND AND WAITING TIME for the given processes --------------\n\n");
+  printf("\t\t\t-----------------------------------------------------------------------------\n");
+  printf("\t\t\t| Process | Arrival Time | Burst Time |  Waiting Time  |  Turn Around Time  |\n");
+  printf("\t\t\t-----------------------------------------------------------------------------\n");
