@@ -45,3 +45,44 @@ int main()
      printf("\t\t\t|  P[%0.0lf]   |       %0.0lf      |     %0.0lf      |\n",pro[i],aT[i],bT[i]);
   }
     printf("\t\t\t---------------------------------------\n");
+   long int k = 1;
+  double b_time = 0;
+  for(j=0;j<n;j++)
+  {
+    b_time = b_time + bT[j];
+    min = bT[k];
+
+    for(i=k;i<n;i++)
+    {
+      if((b_time >= aT[i])&&(bT[i]<min))
+      {
+       order = bT[k];
+        bT[k] = bT[i];
+        bT[i] = order;
+
+       order = aT[k];
+        aT[k] = aT[i];
+        aT[i] = order;
+
+        order = pro[k];
+        pro[k] = pro[i];
+        pro[i] =order;
+      }
+    }
+    k++;
+  }
+  wT[0] = 0;
+  for(i=1;i<n;i++)
+  {
+    sum += bT[i-1];
+    wT[i] = sum - aT[i];
+    wait_final += wT[i]; 
+  }
+  wait_avg = wait_final/n;
+  for(i=0;i<n;i++)
+  {
+    sum1 += bT[i];
+    tT[i] = sum1 - aT[i];
+    ta_final += tT[i];
+  }
+  ta_avg=ta_final/n;
